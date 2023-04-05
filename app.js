@@ -11,12 +11,15 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.get("/", function(req, res){
-    res.render("primeira_pagina")
+    res.render("cadastro")
 })
 
-
-app.get("/2", function(req, res){
-    res.render("segunda_pagina")
+app.get("/consulta", function(req, res){
+    post.findAll().then(function(post){
+        res.render("consulta", {post})
+    }).catch(function(erro){
+        console.log("Erro ao carregar dados do banco: " + erro)
+    })
 })
 
 app.post("/cadastrar", function(req, res){

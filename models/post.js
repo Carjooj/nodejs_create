@@ -1,6 +1,6 @@
 const db = require("./banco")
 
-const Agendamentos = db.sequelize.define('agendamentos', {
+const Cadastros = db.sequelize.define('cadastros', {
     nome: {
         type: db.Sequelize.STRING
     },
@@ -19,6 +19,6 @@ const Agendamentos = db.sequelize.define('agendamentos', {
 
 })
 
-Agendamentos.sync({force:true})
+//Cadastros.sync({force:true})
 
-module.exports = Agendamentos
+module.exports = Cadastros
