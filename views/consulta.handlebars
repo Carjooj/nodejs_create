@@ -1,68 +1,99 @@
-<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">SISTEMA WEB</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Cadastrar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Consultar</a>
-        </li>
-        </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<div class="container-fluid px-5">
-  <h1 class="h4 pt-3">Consulta - Agendamento de Potenciais Clientes</h1>
-
-  <div class="container text-center">
+<div class="container text-center">
     <div class="row">
-      <div class="col text-light bg-primary">
-        Nome
-      </div>
-      <div class="col text-light bg-primary">
-        Telefone
-      </div>
-      <div class="col text-light bg-primary">
-        Origem
-      </div>
-      <div class="col text-light bg-primary">
-        Data
-      </div>
-      <div class="col text-light bg-primary">
-        Observação
-      </div>
+        <div class="col-1">
+            &nbsp;
+        </div>
+        <div class="col bg-primary">
+            <nav class="navbar bg-primary navbar-expand-lg" data-bs-theme="dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">SISTEMA WEB</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link active" aria-current="page" href="/">Cadastrar</a>
+                            <a class="nav-link" href="/consulta">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="col-1">
+            &nbsp;
+        </div>
     </div>
-  </div>
-
-  {{#each post}}
-  {{#dataValues}}
-  <div class="container text-center">
     <div class="row">
-      <div class="col text-dark bg-white">
-        {{nome}}
-      </div>
-      <div class="col text-dark bg-white">
-        {{telefone}}
-      </div>
-      <div class="col text-dark bg-white">
-        {{origem}}
-      </div>
-      <div class="col text-dark bg-white">
-        {{data}}
-      </div>
-      <div class="col text-dark bg-white">
-        {{observacao}}
-      </div>
+        <div class="col-1">
+            &nbsp;
+        </div>
+        <div class="col bg-white">
+            &nbsp;
+        </div>
+        <div class="col-1">
+            &nbsp;
+        </div>
     </div>
-  </div>
-  {{/dataValues}}
-  {{/each}}
+    <div class="row">
+        <div class="col-1">
+            &nbsp;
+        </div>
+        <div class="col bg-white">
+            <p class="text-start fs-5">Cadastrar - Agendamento de Potenciais Clientes</p>
+            <p class="text-start fs-6">Sistema utilizado para agendamento de serviços.</p>
+            <p>
+            <div class="container text-center">
+                <div class="row bg-primary">
+                    <div class="col text-light">
+                        Nome
+                    </div>
+                    <div class="col text-light">
+                        Telefone
+                    </div>
+                    <div class="col text-light">
+                        Origem
+                    </div>
+                    <div class="col text-light">
+                        Data de Contato
+                    </div>
+                    <div class="col text-light">
+                        Observação
+                    </div>
+                    <div class="col text-light">
+                        Ação
+                    </div>
+                </div>
+                {{#each post}}
+                    {{#dataValues}}
+                    <div class="row">
+                        <div class="col">
+                            {{nome}}
+                        </div>
+                        <div class="col">
+                            {{telefone}}
+                        </div>
+                        <div class="col">
+                            {{origem}}
+                        </div>
+                        <div class="col">
+                            {{data}}
+                        </div>
+                        <div class="col">
+                            {{observacao}}
+                        </div>
+                        <div class="col pt-4">
+                          <a href="/excluir/{{id}}" class="btn btn-primary">Excluir</a>
+                        </div>
+                    </div>
+                    {{/dataValues}}
+                {{/each}}
+            </div>
+            </p>
+        </div>
+        <div class="col-1">
+            &nbsp;
+        </div>
+    </div>
 </div>

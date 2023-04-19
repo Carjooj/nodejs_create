@@ -22,6 +22,19 @@ app.get("/consulta", function(req, res){
     })
 })
 
+app.get("/excluir/:id", function(req, res){
+    const id = req.params.id;
+    post.destroy({
+        where: {
+            id : id
+        }
+    }).then(function() {
+        res.redirect("/consulta");
+    }).catch(function(erro) {
+        res.send("Erro ao excluir dados" + erro)
+    })
+})
+
 app.post("/cadastrar", function(req, res){
     post.create({
         nome: req.body.nome,
