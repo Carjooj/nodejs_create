@@ -11,7 +11,7 @@ const Cadastros = db.sequelize.define('cadastros', {
         type: db.Sequelize.STRING
     },
     data: {
-        type: db.Sequelize.DATE
+        type: db.Sequelize.DATEONLY
     },
     observacao: {
         type: db.Sequelize.TEXT

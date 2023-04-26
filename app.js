@@ -22,6 +22,36 @@ app.get("/consulta", function(req, res){
     })
 })
 
+app.post("/cadastrar", function(req, res){
+    post.create({
+        nome: req.body.nome,
+        telefone: req.body.telefone,
+        origem: req.body.origem,
+        data: req.body.data,
+        observacao: req.body.observacao
+    }).then(function(){
+        res.redirect("/")
+    }).catch(function(erro){
+        res.send("Falha ao cadastrar dados: " + erro)
+    })
+})
+
+app.post("/atualizar", function(req, res){
+    post.update({
+        nome: req.body.nome,
+        telefone: req.body.telefone,
+        origem: req.body.origem,
+        data: req.body.data,
+        observacao: req.body.observacao
+    }, {
+        where: {
+            id: req.body.id
+        }
+    }).then(function(){
+        res.redirect("/consulta")
+    })
+})
+
 app.get("/excluir/:id", function(req, res){
     const id = req.params.id;
     post.destroy({
@@ -35,18 +65,15 @@ app.get("/excluir/:id", function(req, res){
     })
 })
 
-app.post("/cadastrar", function(req, res){
-    post.create({
-        nome: req.body.nome,
-        telefone: req.body.telefone,
-        origem: req.body.origem,
-        data: req.body.data,
-        observacao: req.body.observacao
-    }).then(function(){
-        res.send("Dados Enviados com sucesso")
+app.get("/editar/:id", function(req, res) {
+    const id = req.params.id;
+    post.findAll().then(function(post){
+        res.render("editar", {post})
     }).catch(function(erro){
-        res.send("Falha ao cadastrar dados: " + erro)
+        res.send("Erro ao acessar os dados" + erro)
     })
+
+    
 })
 
 

@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">SISTEMA WEB</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Cadastrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/consulta">Consultar</a>
+          </li>
+          </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid px-5">
+    <h1 class="h4 pt-3">Cadastrar - Agendamento de Potenciais Clientes</h1>
+    {{#each post}}
+      {{#dataValues}}
+    <form action="/atualizar" method="POST">
+      <legend class="fs-6 py-2">Sistema Utilizado para o agendadmentro de serviços</legend>
+      <div class="mb-3">
+        <input type="hidden" name="id" value="{{id}}" class="form-control"> 
+        <label for="labelnome" class="form-label">Nome:</label>
+        <input type="name" name="nome" class="form-control" id="nome" value="{{nome}}" >
+      </div>
+      <div class="mb-3">
+        <label for="labeltelefone" class="form-label">Telefone:</label>
+        <input type="number" name="telefone"  class="form-control" id="telefone" placeholder="(xx) xxxxx-xxxx" value="{{telefone}}">
+      </div>
+      <div class="mb-3">
+        <label for="labelorigem" class="form-label">Origem:</label>
+        <select name="origem" id="origem" class="form-select" aria-label="Default select example">
+          <option selected disabled>{{origem}}</option>
+          <option value="celular">Celular</option>
+          <option value="whatsapp">Whatsapp</option>
+          <option value="telefone_fixo">Telefone Fixo</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="labeldata" class="form-label">Data do Contato: </label>
+        <input type="date" name="data" class="form-control" id="data" value="{{data}}">
+      </div>
+      <div class="mb-3">
+        <label for="labelobservacao" class="form-label">Observação</label>
+        <textarea class="form-control" name="observacao" id="observacao" rows="3">{{observacao}}</textarea>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Atualizar</button>
+    </form>
+      {{/dataValues}}
+    {{/each}}
+
+  </div>
+
+  
